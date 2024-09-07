@@ -1,0 +1,57 @@
+-- Database: bd_sistema_bancario
+
+-- DROP DATABASE IF EXISTS bd_sistema_bancario;
+
+CREATE DATABASE bd_sistema_bancario
+    WITH
+    OWNER = postgres
+    ENCODING = 'UTF8'
+    LC_COLLATE = 'Portuguese_Brazil.1252'
+    LC_CTYPE = 'Portuguese_Brazil.1252'
+    LOCALE_PROVIDER = 'libc'
+    TABLESPACE = pg_default
+    CONNECTION LIMIT = -1
+    IS_TEMPLATE = False;
+
+
+create table cliente(
+nome_cliente varchar,
+cidade_cliente varchar,
+endereco_cliente varchar
+);
+
+create table conta(
+numero_conta integer,
+nome_agencia varchar,
+saldo real
+);
+
+create table emprestimo(
+numero_emprestimo integer,
+nome_agencia varchar,
+valor real
+);
+
+create table agencia(
+nome_agencia varchar,
+cidade_agencia varchar,
+depositos real
+);
+
+create table funcionario(
+nome_funcionario varchar,
+nome_agencia varchar,
+cidade_funcionario varchar,
+endereco_funcionario varchar
+);
+
+drop table cliente;
+drop table funcionario;
+drop table agencia;
+drop table emprestimo;
+drop table conta;
+
+alter table cliente add column idade integer;
+alter table cliente add column cpf varchar;
+
+create schema andre;
